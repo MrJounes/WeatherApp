@@ -17,13 +17,13 @@ enum ForecastType: FinalProtocolPoint {
     case Current(apiKey: String, coordinates: Coordinates)
     
     var baseURL: URL {
-        return URL(string: "http://api.forecast.io")!
+        return URL(string: "https://api.forecast.io")!
     }
     
     var path: String {
         switch self {
         case .Current( let apiKey, let coordinates):
-            return "/forecast/\(apiKey)/\(coordinates.latitude), \(coordinates.longitude)"
+            return "/forecast/\(apiKey)/\(coordinates.latitude),\(coordinates.longitude)"
         }
     }
     

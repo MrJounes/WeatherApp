@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    //let urlString = "https://api.forecast.io/forecast/2a6d8e376a69c1ae07d4a52dd0c2dfdc/37.8267,-122.423"
+    
     @IBOutlet weak var lacationLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var pressureLabel: UILabel!
@@ -22,28 +24,24 @@ class ViewController: UIViewController {
         
     }
     
+    lazy var weatherManager = APIWeatherManager(apiKey: "2a6d8e376a69c1ae07d4a52dd0c2dfdc")
+    let coordinates = Coordinates(latitude: 48.772085, longitude: 44.799962)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let icon = WeatherIconManager.Rain.image
-        let currentWeather = CurrentWeather(temperature: 10.0, apparentTemperature: 5.0, humidity: 30, pressure: 750, icon: icon)
-        updateUIWith(currentWeather: currentWeather)
         
-        //let urlString = "https://api.forecast.io/forecast/2a6d8e376a69c1ae07d4a52dd0c2dfdc/37.8267,-122.423"
-        
-        /*
-        let baseURL = URL(string: "https://api.forecast.io/forecast/2a6d8e376a69c1ae07d4a52dd0c2dfdc/")
-        let fullURL = URL(string: "37.8267,-122.423", relativeTo: baseURL)
-        
-        let sessionconfiguration = URLSessionConfiguration.default
-        let session = URLSession(configuration: sessionconfiguration)
-        
-        let request = URLRequest(url: fullURL!)
-        let dataTask = session.dataTask(with: fullURL!) { (data, response, error) in
-            
+        weatherManager.fetchCurrentWeatherWith(coordinates: coordinates) { (result) in
+            switch result {
+            case .Success(let currentWeather):
+                self.updateUIWith(currentWeather: currentWeather)
+            case .Failure(let error as NSError):
+                let alertController = UIAlertController(title: "Unable to get data", message: "\(error.localizedDescription)", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(okAction)
+                
+                self.present(alertController, animated: true)
+            }
         }
-        dataTask.resume()
-        */
-        
     }
 
     func updateUIWith(currentWeather: CurrentWeather) {

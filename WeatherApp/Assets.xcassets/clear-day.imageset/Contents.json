@@ -2,17 +2,17 @@
   "images" : [
     {
       "filename" : "clear-day.png",
-      "idiom" : "universal",
+      "idiom" : "iphone",
       "scale" : "1x"
     },
     {
-      "filename" : "clear-day-1.png",
-      "idiom" : "universal",
+      "filename" : "clear-day@2x.png",
+      "idiom" : "iphone",
       "scale" : "2x"
     },
     {
-      "filename" : "clear-day-2.png",
-      "idiom" : "universal",
+      "filename" : "clear-day@3x.png",
+      "idiom" : "iphone",
       "scale" : "3x"
     }
   ],
