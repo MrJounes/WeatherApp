@@ -18,10 +18,22 @@ class ViewController: UIViewController {
     @IBOutlet weak var humidityLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var appearentTemperatureLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var refreshButton: UIButton!
     
     @IBAction func refreshButtonTapped(_ sender: UIButton) {
+        toggleActivitiIndicator(on: true)
+        getCurrentWeatherData()
+    }
+    
+    func toggleActivitiIndicator(on: Bool) {
+        refreshButton.isHidden = on
         
+        if on {
+            activityIndicator.startAnimating()
+        } else {
+            activityIndicator.stopAnimating()
+        }
     }
     
     lazy var weatherManager = APIWeatherManager(apiKey: "2a6d8e376a69c1ae07d4a52dd0c2dfdc")
@@ -29,8 +41,12 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        getCurrentWeatherData()
+    }
+
+    func getCurrentWeatherData() {
         weatherManager.fetchCurrentWeatherWith(coordinates: coordinates) { (result) in
+            self.toggleActivitiIndicator(on: false)
             switch result {
             case .Success(let currentWeather):
                 self.updateUIWith(currentWeather: currentWeather)
@@ -43,7 +59,7 @@ class ViewController: UIViewController {
             }
         }
     }
-
+    
     func updateUIWith(currentWeather: CurrentWeather) {
         
         self.imageView.image = currentWeather.icon
