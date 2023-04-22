@@ -16,12 +16,16 @@ final class SceneBuildManager {
         networkManager: networkManager,
         decoderManager: decoderManager
     )
+    private lazy var locationManager = LocationManager()
 }
 
 extension SceneBuildManager: SceneBuildManagable {
     func buildMainScene() -> MainViewController {
         let viewController = MainViewController()
-        let presenter = MainPresenter(apiManager: apiManager)
+        let presenter = MainPresenter(
+            apiManager: apiManager,
+            locationManager: locationManager
+        )
         
         viewController.presenter = presenter
         presenter.view = viewController

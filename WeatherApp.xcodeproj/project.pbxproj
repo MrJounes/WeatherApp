@@ -25,6 +25,7 @@
 		57BE837429F4429900F7B9AF /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BE837329F4429900F7B9AF /* Method.swift */; };
 		57BE837629F442A700F7B9AF /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BE837529F442A700F7B9AF /* APIEndpoint.swift */; };
 		57BE837829F44A8300F7B9AF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BE837729F44A8300F7B9AF /* Constants.swift */; };
+		57BE837A29F45EE100F7B9AF /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BE837929F45EE100F7B9AF /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		57BE837329F4429900F7B9AF /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
 		57BE837529F442A700F7B9AF /* APIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
 		57BE837729F44A8300F7B9AF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		57BE837929F45EE100F7B9AF /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 				57BE836229F42FF900F7B9AF /* Network */,
 				57BE835C29F42A1800F7B9AF /* SceneBuildManager.swift */,
 				57BE836729F430B700F7B9AF /* DecoderManager.swift */,
+				57BE837929F45EE100F7B9AF /* LocationManager.swift */,
 			);
 			path = ServiceLayer;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57BE836829F430B700F7B9AF /* DecoderManager.swift in Sources */,
+				57BE837A29F45EE100F7B9AF /* LocationManager.swift in Sources */,
 				57BE835F29F42C1C00F7B9AF /* NetworkManager.swift in Sources */,
 				57BE835729F425B900F7B9AF /* MainViewController.swift in Sources */,
 				57BE834129F4239A00F7B9AF /* AppDelegate.swift in Sources */,
@@ -407,6 +411,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -435,6 +440,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
